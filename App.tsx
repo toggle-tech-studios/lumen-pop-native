@@ -67,7 +67,7 @@ export default function App() {
   const openLevel = (nextLevel?: number) => {
     const destination = nextLevel ?? progress.highestUnlocked;
     setLevel(destination);
-    setScreen('level-loading');
+    setScreen('game');
   };
 
   if (!ready) return null;

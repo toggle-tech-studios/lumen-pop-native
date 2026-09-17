@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   logo: {
-    width: Math.min(width * 0.63, 270),
-    height: Math.min(width * 0.63, 270),
-    borderRadius: Math.min(width * 0.63, 270) * 0.31,
+    width: Math.min(width * 0.75, 320),
+    height: 120,
+    resizeMode: 'contain',
   },
   eyebrow: {
     marginTop: 28,

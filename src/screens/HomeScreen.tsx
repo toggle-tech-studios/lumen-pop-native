@@ -67,7 +67,7 @@ export function HomeScreen({ progress, onGame, onSettings, onGift }: HomeScreenP
       
       <Topbar onSettings={onSettings} />
       
-      <ScrollView contentContainerStyle={styles.content}>
+      <View style={styles.content}>
         <View style={styles.welcomeCard}>
           <View>
             <Text style={styles.eyebrow}>The first spark</Text>
@@ -81,9 +81,9 @@ export function HomeScreen({ progress, onGame, onSettings, onGift }: HomeScreenP
         </View>
 
         <View style={styles.mapCard}>
-          <ImageBackground source={require('../../assets/bg_level_1.png')} style={StyleSheet.absoluteFill} />
+          <ImageBackground source={require('../../assets/bg_level_2.png')} style={StyleSheet.absoluteFill} />
           <View style={styles.mapOverlay} />
-          <View style={[styles.mapScene, { minHeight: Math.max(height * 0.4, mapRows * 100) }]}>
+          <View style={[styles.mapScene, { flex: 1 }]}>
             <Svg width="100%" height="100%" viewBox="0 0 400 330" preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
               <Polyline points={pathPoints} fill="none" stroke="rgba(255,242,154,0.6)" strokeWidth={3} strokeDasharray="6 8" strokeLinecap="round" strokeLinejoin="round" />
             </Svg>
@@ -124,20 +124,7 @@ export function HomeScreen({ progress, onGame, onSettings, onGift }: HomeScreenP
             </Button>
           </View>
         </View>
-
-        <BlurView intensity={20} tint="light" style={styles.miniPanel}>
-          <View style={styles.miniPanelRow}>
-            <View style={styles.miniPanelIconBox}>
-              <Crown size={20} color="#fef08a" />
-            </View>
-            <View>
-              <Text style={styles.miniPanelTitle}>Star trail</Text>
-              <Text style={styles.miniPanelDesc}>Complete a level to fill your constellation</Text>
-            </View>
-          </View>
-          <Text style={styles.miniPanelStat}>{Object.keys(progress.completed).length} lit</Text>
-        </BlurView>
-      </ScrollView>
+      </View>
 
       {notice ? (
         <View style={styles.toast}>
@@ -162,6 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(20,8,56,0.5)',
   },
   content: {
+    flex: 1,
     paddingHorizontal: 20,
     paddingBottom: 40,
   },
@@ -212,7 +200,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   mapCard: {
-    height: 400,
+    flex: 1,
     borderRadius: 28,
     overflow: 'hidden',
     borderWidth: 1,

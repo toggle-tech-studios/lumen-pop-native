@@ -8,6 +8,7 @@
     "expo-av": "^16.0.8",
     "expo-blur": "~57.0.3",
     "expo-status-bar": "~57.0.1",
+    "jimp": "^1.6.1",
     "lucide-react-native": "^1.46.0",
     "react": "19.2.3",
     "react-native": "0.86.3",

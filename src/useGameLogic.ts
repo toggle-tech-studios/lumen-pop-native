@@ -34,8 +34,8 @@ export const todayKey = () => new Date().toISOString().slice(0, 10);
 
 export const levelConfig = (level: number) => ({
   level,
-  targetScore: 5000 + (level - 1) * 1000,
-  moves: 40 + (level - 1) * 20,
+  targetScore: 1000 + (level - 1) * 500,
+  moves: 40 + (level - 1) * 10,
   world: level < 11 ? 'Starlight Meadows' : level < 26 ? 'Crystal Valley' : 'Twilight Grove',
   title: level < 11 ? 'First Glow' : level < 26 ? 'Crystal Drift' : 'Moonlit Bloom',
   lesson: level <= 2 ? 'Make an easy 3-link to wake the meadow' : level <= 5 ? 'Longer chains charge brighter rewards' : 'Find the clearest line through the glow',

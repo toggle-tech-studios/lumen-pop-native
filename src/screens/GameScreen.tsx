@@ -151,7 +151,7 @@ export function GameScreen({
     }
     
     const chainColor = board[chain[0]]!.color;
-    const scoreGain = chain.length === 3 ? 300 : chain.length === 4 ? 650 : 1100 + (chain.length - 5) * 450;
+    const scoreGain = chain.length * 25;
     
     setMoves((current: number) => Math.max(0, current - 1));
     performRemoval(chain, chainColor, scoreGain);
@@ -183,9 +183,18 @@ export function GameScreen({
     setOverlay(null);
   };
 
+  const getBackground = (level: number) => {
+    if (level <= 10) return require('../../assets/bg_level_1.png');
+    if (level <= 20) return require('../../assets/bg_level_2.png');
+    if (level <= 30) return require('../../assets/bg_level_3.png');
+    if (level <= 40) return require('../../assets/bg_level_4.png');
+    if (level <= 50) return require('../../assets/bg_level_5.png');
+    return require('../../assets/bg_level_6.png');
+  };
+
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/bg_level_1.png')} style={StyleSheet.absoluteFill} imageStyle={{ opacity: 0.28 }} />
+      <ImageBackground source={getBackground(levelNumber)} style={StyleSheet.absoluteFill} imageStyle={{ opacity: 0.28 }} />
       <View style={styles.gradientOverlay} />
       
       <Topbar onBack={onBack} onSettings={onSettings} label={config.world.toUpperCase()} />
